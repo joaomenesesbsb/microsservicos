@@ -1,13 +1,5 @@
-package com.jvmeneses.hrworker.entities;
-
-import javax.persistence.*;
-import java.io.Serializable;
-
-@Entity
-@Table(name = "tb_worker")
+package com.jvmeneses.hrpayholl.entities;
 public class Worker {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Double dailyIncome;
