@@ -6,6 +6,7 @@ import com.jvmeneses.hrworker.repositories.WorkerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,12 +19,19 @@ public class WorkerService {
 
     private static Logger logger = LoggerFactory.getLogger(WorkerService.class);
 
+    @Value("${test.config}")
+    private String testConfig;
+
     @Autowired
     private Environment env;
 
     @Autowired
     private WorkerRepository workerRepository;
 
+
+   public void getConfigs(){
+        logger.info("CONFIG = " + testConfig);
+    }
     @Transactional
     public Page<WorkerDTO> findAll(Pageable pageble){
        Page<Worker> result = workerRepository.findAll(pageble);

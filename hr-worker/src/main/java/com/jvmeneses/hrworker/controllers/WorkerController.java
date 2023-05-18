@@ -18,6 +18,12 @@ public class WorkerController {
     @Autowired
     private WorkerService workerService;
 
+    @GetMapping(value = "/configs")
+    public ResponseEntity<Void> getConfigs(){
+        workerService.getConfigs();
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping
     public ResponseEntity<Page<WorkerDTO>> findAll(Pageable pageable){
         return ResponseEntity.ok(workerService.findAll(pageable));
