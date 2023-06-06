@@ -16,14 +16,12 @@ public class UserService {
 
     @Transactional
     public UserDTO findById(Long id){
-
         User entity = userRepository.findById(id).get();
         return new UserDTO(entity);
     }
 
     @Transactional
     public UserDTO findByEmail(String email){
-
         User entity = userRepository.findByEmail(email);
         return new UserDTO(entity);
     }
