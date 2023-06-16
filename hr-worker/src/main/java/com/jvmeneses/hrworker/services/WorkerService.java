@@ -19,19 +19,12 @@ public class WorkerService {
 
     private static Logger logger = LoggerFactory.getLogger(WorkerService.class);
 
-    @Value("${test.config}")
-    private String testConfig;
-
     @Autowired
     private Environment env;
 
     @Autowired
     private WorkerRepository workerRepository;
 
-
-   public void getConfigs(){
-        logger.info("CONFIG = " + testConfig);
-    }
     @Transactional
     public Page<WorkerDTO> findAll(Pageable pageble){
        Page<Worker> result = workerRepository.findAll(pageble);
